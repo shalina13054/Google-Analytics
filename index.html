@@ -4,17 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Demo Store - Home</title>
-
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX'); <!-- Replace with your GTM ID -->
-  </script>
-  <!-- End Google Tag Manager -->
-
   <style>
     body { font-family: Arial; margin: 40px; }
     .product { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; width: 250px; }
@@ -23,40 +12,32 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
   <h1>Welcome to My Demo Store</h1>
-  <p>Use this mock store to test GA4, GTM, and Google Ads conversion tracking.</p>
+  <p>This demo website is for practicing analytics and conversions.</p>
 
   <div class="product">
     <h3>Product 1 - Headphones</h3>
     <p>Price: ₹1500</p>
-    <button onclick="addToCart('Headphones', 1500)">Add to Cart</button>
+    <button id="addHeadphones">Add to Cart</button>
     <a href="product.html">View Details</a>
   </div>
 
   <div class="product">
     <h3>Product 2 - Smartwatch</h3>
     <p>Price: ₹3500</p>
-    <button onclick="addToCart('Smartwatch', 3500)">Add to Cart</button>
+    <button id="addSmartwatch">Add to Cart</button>
   </div>
 
   <script>
-    function addToCart(productName, price) {
-      dataLayer.push({
-        event: 'add_to_cart',
-        ecommerce: {
-          items: [{
-            item_name: productName,
-            price: price
-          }]
-        }
-      });
-      alert(productName + " added to cart!");
-    }
+    document.getElementById("addHeadphones").addEventListener("click", function() {
+      console.log("Add to Cart: Headphones ₹1500");
+      alert("Headphones added to cart!");
+    });
+
+    document.getElementById("addSmartwatch").addEventListener("click", function() {
+      console.log("Add to Cart: Smartwatch ₹3500");
+      alert("Smartwatch added to cart!");
+    });
   </script>
 </body>
 </html>
