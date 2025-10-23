@@ -4,26 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You</title>
-
-  <!-- GTM -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');
-  </script>
-  <!-- End GTM -->
 </head>
 <body>
   <h1>Thank You!</h1>
-  <p>Your form submission or purchase was successful.</p>
+  <p>Your action was successful — you can tag this page as a conversion.</p>
+
+  <a href="index.html">Back to Home</a>
 
   <script>
-    dataLayer.push({
-      event: 'conversion',
-      conversion_type: 'thank_you_page'
-    });
+    console.log("Thank You page loaded — conversion can be tracked here.");
   </script>
 </body>
 </html>
