@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+
+  <!-- GTM -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+  <!-- End GTM -->
+
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    input, button { display: block; margin-top: 10px; padding: 10px; width: 300px; }
+  </style>
+</head>
+<body>
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <h2>Smartwatch</h2>
+  <p>Track your fitness and notifications in style.</p>
+  <p>Price: ₹3500</p>
+  <button onclick="buyNow()">Buy Now</button>
+
+  <h3>Contact Form</h3>
+  <form id="leadForm" onsubmit="submitForm(event)">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Email Address" required />
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function buyNow() {
+      dataLayer.push({
+        event: 'purchase_initiated',
+        ecommerce: {
+          transaction_id: 'T' + Math.floor(Math.random()*100000),
+          items: [{ item_name: 'Smartwatch', price: 3500 }]
+        }
+      });
+      alert("Purchase initiated!");
+      window.location.href = "thankyou.html";
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      dataLayer.push({
+        event: 'form_submit',
+        form_data: {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value
+        }
+      });
+      alert("Form submitted!");
+      window.location.href = "thankyou.html";
+    }
+  </script>
+</body>
+</html>
